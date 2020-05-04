@@ -16,11 +16,6 @@ public class DuckDuckGoTests
 {
 	WebDriver driver;
 
-	private By searchTextField = By.className("js-search-input");
-	private By searchTextField_Name = By.name("q");
-	private By searchButton = By.id("search_button_homepage");
-	private By searchResult = By.cssSelector(".result__title");
-
 	public DuckDuckGoTests(ChromeDriver driver)
 	{
 		this.driver = driver;
