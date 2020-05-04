@@ -12,6 +12,8 @@ import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.concurrent.TimeUnit;
+
 @ExtendWith(SeleniumExtension.class)
 public class DuckDuckGoSeleniumExtensionTests
 {
@@ -21,6 +23,7 @@ public class DuckDuckGoSeleniumExtensionTests
 	public DuckDuckGoSeleniumExtensionTests(ChromeDriver driver)
 	{
 		this.driver = driver;
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 
 	@BeforeEach
