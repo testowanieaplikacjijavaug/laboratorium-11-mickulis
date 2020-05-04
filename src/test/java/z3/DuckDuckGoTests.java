@@ -11,8 +11,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.List;
-
 @ExtendWith(SeleniumExtension.class)
 public class DuckDuckGoTests
 {
@@ -56,10 +54,9 @@ public class DuckDuckGoTests
 	}
 
 	@Test
-	public void searchForSomethingAndOpenFirstResult()
+	public void searchForADuck()
 	{
 		searchFor("duck");
-		clickOnNthResult(1);
 	}
 
 	@Test
@@ -84,20 +81,7 @@ public class DuckDuckGoTests
 			.click();
 	}
 
-
 	private By searchTextField = By.className("js-search-input");
 	private By searchButton = By.id("search_button_homepage");
 	private By searchResult = By.cssSelector(".result__title a");
-
-	public void clickOnNthResult(int n)
-	{
-		if(n < 1)
-			throw new InvalidArgumentException("");
-
-		List<WebElement> list = driver.findElements(searchResult);
-		if(list.size() < n)
-			throw new NotFoundException();
-
-		list.get(n-1).click();
-	}
 }
